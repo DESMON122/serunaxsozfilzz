@@ -1,11 +1,272 @@
---[[
-This script is protected by XProtect Obfuscator Free Version.
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Seruna X Hub V2 [Ultra New]", "Sentinel")
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Menu")
+Section:NewToggle("Auto Farm Normal [Not Bug]", "Auto Farm Normal", function(state)
+getgenv().TreasureAutoFarm = {
+    Enabled = true, -- // Toggle the auto farm on and off
+    Teleport = 2, -- // How fast between each teleport between the stages and stuff
+    TimeBetweenRuns = 3 -- // How long to wait until it goes to the next run
+}
 
-Version: 1.0
-Obfuscation Time: 414ms
+-- // Services
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local Lighting = game:GetService("Lighting")
 
-For support and updates, join our Discord community:
-Discord: discord.gg/7hv7k6FfNr
+-- // Vars
+local LocalPlayer = Players.LocalPlayer
 
-]]
-local t=string.byte;local r=string.char;local c=string.sub;local s=table.concat;local b=math.ldexp;local L=getfenv or function()return _ENV end;local l=setmetatable;local u=select;local i=unpack;local h=tonumber;local function J(t)local o,e,a="","",{}local n=256;local d={}for l=0,n-1 do d[l]=r(l)end;local l=1;local function f()local o=h(c(t,l,l),36)l=l+1;local e=h(c(t,l,l+o-1),36)l=l+o;return e end;o=r(f())a[1]=o;while l<#t do local l=f()if d[l]then e=d[l]else e=o..c(o,1,1)end;d[n]=o..c(e,1,1)a[#a+1],o,n=e,e,n+1 end;return table.concat(a)end;local a=J('21321B2751X21326725S21827421B21121R27921621R2752102131V21B21627C2191F27G1F27J21J27521627V21B1W21B27T21627527Z21327I27O2751W27C28828427521728421821128421V21S22622322K22J22L21Y21T22021828F27522022621U22221821428422V22J22J22N22W22222J21822R28421Z29522N22K1L101022L22622G1122021Y22J21Z22I22522I22K22222L22421S21T22J2222A11129Z21U1022Z22Y23G22Q22O22P1U1T1T1029W22L22I21T22622F29S2251M1021U22628R2AI29X2AL2AN22K21S22D22121Y21V22D22D21B');local n=bit and bit.bxor or function(l,o)local e,n=1,0 while l>0 and o>0 do local a,c=l%2,o%2 if a~=c then n=n+e end l,o,e=(l-a)/2,(o-c)/2,e*2 end if l<o then l=o end while l>0 do local o=l%2 if o>0 then n=n+e end l,e=(l-o)/2,e*2 end return n end local function o(o,l,e)if e then local l=(o/2^(l-1))%2^((e-1)-(l-1)+1);return l-l%1;else local l=2^(l-1);return(o%(l+l)>=l)and 1 or 0;end;end;local l=1;local function e()local e,c,o,a=t(a,l,l+3);e=n(e,47)c=n(c,47)o=n(o,47)a=n(a,47)l=l+4;return(a*16777216)+(o*65536)+(c*256)+e;end;local function d()local o=n(t(a,l,l),47);l=l+1;return o;end;local function T()local n=e();local l=e();local c=1;local n=(o(l,1,20)*(2^32))+n;local e=o(l,21,31);local l=((-1)^o(l,32));if(e==0)then if(n==0)then return l*0;else e=1;c=0;end;elseif(e==2047)then return(n==0)and(l*(1/0))or(l*(0/0));end;return b(l,e-1023)*(c+(n/(2^52)));end;local f=e;local function h(o)local e;if(not o)then o=f();if(o==0)then return'';end;end;e=c(a,l,l+o-1);l=l+o;local o={}for l=1,#e do o[l]=r(n(t(c(e,l,l)),47))end return s(o);end;local l=e;local function f(...)return{...},u('#',...)end local function J()local t={0,0,0,0,0,0,0,0};local r={};local l={};local a={t,nil,r,nil,l};for a=1,e()do local c=n(e(),15);local e=n(e(),5);local n=o(c,1,2);local l=o(e,1,11);local l={l,o(c,3,11),nil,nil,e};if(n==0)then l[3]=o(c,12,20);l[5]=o(c,21,29);elseif(n==1)then l[3]=o(e,12,33);elseif(n==2)then l[3]=o(e,12,32)-1048575;elseif(n==3)then l[3]=o(e,12,32)-1048575;l[5]=o(c,21,29);end;t[a]=l;end;for l=1,e()do r[l-1]=J();end;local l=e()local e={0,0,0,0};for n=1,l do local o=d();local l;if(o==0)then l=(d()~=0);elseif(o==1)then l=T();elseif(o==3)then l=h();end;e[n]=l;end;a[2]=e a[4]=d();return a;end;local function T(l,o,h)local n=l[1];local e=l[2];local o=l[3];local l=l[4];return function(...)local r=n;local t=e;local o=o;local n=l;local s=f local e=1;local d=-1;local f={};local c={...};local a=u('#',...)-1;local l={};local o={};for l=0,a do if(l>=n)then f[l-n]=c[l+1];else o[l]=c[l+1];end;end;local l=a-n+1 local l;local a;while true do l=r[e];a=l[1];if a<=6 then if a<=2 then if a<=0 then o[l[2]]=h[t[l[3]]];elseif a==1 then local n=l[2];local e=o[l[3]];o[n+1]=e;o[n]=e[t[l[5]]];else local n=l[2];local c={};local e=0;local a=d;for l=n+1,a do e=e+1;c[e]=o[l];end;local c={o[n](i(c,1,a-n))};local l=n+l[5]-2;e=0;for l=n,l do e=e+1;o[l]=c[e];end;d=l;end;elseif a<=4 then if a==3 then do return end;else o[l[2]]=h[t[l[3]]];end;elseif a==5 then local e=l[2];local n=o[l[3]];o[e+1]=n;o[e]=n[t[l[5]]];else local n;local u,n;local a;local c;local f;local b;local n;o[l[2]]=h[t[l[3]]];e=e+1;l=r[e];o[l[2]]=h[t[l[3]]];e=e+1;l=r[e];n=l[2];b=o[l[3]];o[n+1]=b;o[n]=b[t[l[5]]];e=e+1;l=r[e];o[l[2]]=t[l[3]];e=e+1;l=r[e];n=l[2];f={};c=0;a=n+l[3]-1;for l=n+1,a do c=c+1;f[c]=o[l];end;u,a=s(o[n](i(f,1,a-n)));a=a+n-1;c=0;for l=n,a do c=c+1;o[l]=u[c];end;d=a;e=e+1;l=r[e];n=l[2];f={};c=0;a=d;for l=n+1,a do c=c+1;f[c]=o[l];end;u={o[n](i(f,1,a-n))};a=n+l[5]-2;c=0;for l=n,a do c=c+1;o[l]=u[c];end;d=a;e=e+1;l=r[e];o[l[2]]();d=n;e=e+1;l=r[e];do return end;end;elseif a<=10 then if a<=8 then if a>7 then do return end;else local n=l[2];local c={};local e=0;local l=n+l[3]-1;for l=n+1,l do e=e+1;c[e]=o[l];end;local c,l=s(o[n](i(c,1,l-n)));l=l+n-1;e=0;for l=n,l do e=e+1;o[l]=c[e];end;d=l;end;elseif a==9 then o[l[2]]=t[l[3]];else o[l[2]]();d=A;end;elseif a<=12 then if a>11 then o[l[2]]();d=A;else local n=l[2];local a={};local e=0;local c=d;for l=n+1,c do e=e+1;a[e]=o[l];end;local c={o[n](i(a,1,c-n))};local l=n+l[5]-2;e=0;for l=n,l do e=e+1;o[l]=c[e];end;d=l;end;elseif a>13 then local n=l[2];local c={};local e=0;local l=n+l[3]-1;for l=n+1,l do e=e+1;c[e]=o[l];end;local c,l=s(o[n](i(c,1,l-n)));l=l+n-1;e=0;for l=n,l do e=e+1;o[l]=c[e];end;d=l;else o[l[2]]=t[l[3]];end;e=e+1;end;end;end;return T(J(),{},L())();
+-- // Goes through all of the stages
+local autoFarm = function(currentRun)
+    -- // Variables
+    local Character = LocalPlayer.Character
+    local NormalStages = Workspace.BoatStages.NormalStages
+
+    -- // Go to each stage thing
+    for i = 1, 10 do
+        local Stage = NormalStages["CaveStage" .. i]
+        local DarknessPart = Stage:FindFirstChild("DarknessPart")
+
+        if (DarknessPart) then
+            -- // Teleport to next stage
+            print("Teleporting to next stage: Stage " .. i)
+            Character.HumanoidRootPart.CFrame = DarknessPart.CFrame
+
+            -- // Create a temp part under you
+            local Part = Instance.new("Part", LocalPlayer.Character)
+            Part.Anchored = true
+            Part.Position = LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0, 6, 0)
+
+            -- // Wait and remove temp part
+            wait(getgenv().TreasureAutoFarm.Teleport)
+            Part:Destroy()
+        end
+    end
+
+    -- // Go to end
+    print("Teleporting to the end")
+    repeat wait()
+        Character.HumanoidRootPart.CFrame = NormalStages.TheEnd.GoldenChest.Trigger.CFrame
+    until Lighting.ClockTime ~= 14
+
+    -- // Wait until you have respawned
+    local Respawned = false
+    local Connection
+    Connection = LocalPlayer.CharacterAdded:Connect(function()
+        Respawned = true
+        Connection:Disconnect()
+    end)
+
+    repeat wait() until Respawned
+    wait(getgenv().TreasureAutoFarm.TimeBetweenRuns)
+    print("Auto Farm: Run " .. currentRun .. " finished")
+end
+
+-- // Whilst the autofarm is enable, constantly do it
+local autoFarmRun = 1
+while wait() do
+    if (getgenv().TreasureAutoFarm.Enabled) then
+        print("Initialising Auto Farm: Run " .. autoFarmRun)
+        autoFarm(autoFarmRun)
+        autoFarmRun = autoFarmRun + 1
+    end
+end
+end)
+
+Section:NewToggle("Auto Farm Fast [Not Bug]", "Auto Farm Fast", function(state)
+getgenv().TreasureAutoFarm = {
+    Enabled = true, -- // Toggle the auto farm on and off
+    Teleport = 1, -- // How fast between each teleport between the stages and stuff
+    TimeBetweenRuns = 1 -- // How long to wait until it goes to the next run
+}
+
+-- // Services
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local Lighting = game:GetService("Lighting")
+
+-- // Vars
+local LocalPlayer = Players.LocalPlayer
+
+-- // Goes through all of the stages
+local autoFarm = function(currentRun)
+    -- // Variables
+    local Character = LocalPlayer.Character
+    local NormalStages = Workspace.BoatStages.NormalStages
+
+    -- // Go to each stage thing
+    for i = 1, 10 do
+        local Stage = NormalStages["CaveStage" .. i]
+        local DarknessPart = Stage:FindFirstChild("DarknessPart")
+
+        if (DarknessPart) then
+            -- // Teleport to next stage
+            print("Teleporting to next stage: Stage " .. i)
+            Character.HumanoidRootPart.CFrame = DarknessPart.CFrame
+
+            -- // Create a temp part under you
+            local Part = Instance.new("Part", LocalPlayer.Character)
+            Part.Anchored = true
+            Part.Position = LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0, 6, 0)
+
+            -- // Wait and remove temp part
+            wait(getgenv().TreasureAutoFarm.Teleport)
+            Part:Destroy()
+        end
+    end
+
+    -- // Go to end
+    print("Teleporting to the end")
+    repeat wait()
+        Character.HumanoidRootPart.CFrame = NormalStages.TheEnd.GoldenChest.Trigger.CFrame
+    until Lighting.ClockTime ~= 14
+
+    -- // Wait until you have respawned
+    local Respawned = false
+    local Connection
+    Connection = LocalPlayer.CharacterAdded:Connect(function()
+        Respawned = true
+        Connection:Disconnect()
+    end)
+
+    repeat wait() until Respawned
+    wait(getgenv().TreasureAutoFarm.TimeBetweenRuns)
+    print("Auto Farm: Run " .. currentRun .. " finished")
+end
+
+-- // Whilst the autofarm is enable, constantly do it
+local autoFarmRun = 1
+while wait() do
+    if (getgenv().TreasureAutoFarm.Enabled) then
+        print("Initialising Auto Farm: Run " .. autoFarmRun)
+        autoFarm(autoFarmRun)
+        autoFarmRun = autoFarmRun + 1
+    end
+end
+end)
+
+Section:NewToggle("Anti AFK", "ANTI AFK", function(state)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/peatchXD/Roblox-Script-AFK/main/Script%20AFK.lua"))()
+end)
+
+local Section = Tab:NewSection("Remove Fog")
+
+Section:NewToggle("Remove Fog", "Remove Fog", function(state)
+game.Lighting.FogEnd = 100000
+game.Lighting.FogStart = 0
+game.Lighting.ClockTime = 14
+game.Lighting.Brightness = 2
+game.Lighting.GlobalShadows = false
+end)
+
+local Tab = Window:NewTab("Teleport")
+local Section = Tab:NewSection("Teleport")
+
+Section:NewButton("Teleport To Blue Team", "Teleport To Blue Team", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(367.974213, -9.90197086, 299.72049, 0.00207350752, 5.77711816e-08, 0.999997854, -1.46216816e-10, 1, -5.7771004e-08, -0.999997854, -2.64278998e-11, 0.00207350752)
+end)
+
+Section:NewButton("Teleport To Green Team", "Teleport To Green Team", function()
+game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-477.103729, -9.90197086, 293.722473, -0.0118726091, -6.24329886e-08, -0.999929547, -3.15983471e-08, 1, -6.2062206e-08, 0.999929547, 3.08592796e-08, -0.0118726091)
+end)
+
+Section:NewButton("Teleport To Yellow Team", "Teleport To Yellow Team", function()
+game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-475.022247, -9.90197086, 640.766724, -0.0917500034, -1.09219558e-08, -0.995782077, -6.44377551e-10, 1, -1.09088472e-08, 0.995782077, -3.59227148e-10, -0.0917500034)
+end)
+
+Section:NewButton("Teleport To Red Team", "Teleport To Red Team", function()
+game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(367.626007, -9.90197086, -65.071785, -0.0313464925, 1.08780647e-07, 0.99950856, -2.8426439e-09, 1, -1.08923281e-07, -0.99950856, -6.25560981e-09, -0.0313464925)
+end)
+
+Section:NewButton("Teleport To Black Team", "", function()
+game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-474.805603, -9.90197086, -69.4997177, -0.0266387537, -2.26721468e-08, -0.999645114, -5.60203994e-10, 1, -2.2665267e-08, 0.999645114, -4.37692903e-11, -0.0266387537)
+end)
+
+Section:NewButton("Teleport To Pink Team Team", "Teleport To Yellow Team", function()
+game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(368.710663, -9.90197086, 646.741516, 0.00920647662, -8.49051958e-08, 0.999957621, 8.9186134e-09, 1, 8.48266808e-08, -0.999957621, 8.13728018e-09, 0.00920647662)
+end)
+
+local Section = Tab:NewSection("Win")
+
+Section:NewButton("Teleport To Win", "", function()
+game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-52.286808, -360.406219, 9367.83496, -0.99965924, 1.88684979e-08, 0.026103884, 2.17836043e-08, 1, 1.11388907e-07, -0.026103884, 1.11919583e-07, -0.99965924)
+end)
+
+local Tab = Window:NewTab("Player")
+local Section = Tab:NewSection("Player")
+
+players = {}
+
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+   table.insert(players,v.Name)
+  end
+
+Section:NewDropdown("Select Player ", "DropdownInf", players, function(abc)
+    Select = abc
+end)
+
+Section:NewButton("Refresh", "Cilck to reset players", function()
+    table.clear(players)
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+    table.insert(players,v.Name)
+end
+end)
+
+Section:NewButton("Teleport", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[Select].Character.HumanoidRootPart.CFrame
+end)
+
+local Section = Tab:NewSection("ESP Players")
+
+Section:NewToggle("ESP Players", "ToggleInfo", function(state)
+local FillColor = Color3.fromRGB(175,25,255)
+local DepthMode = "AlwaysOnTop"
+local FillTransparency = 0.5
+local OutlineColor = Color3.fromRGB(255,255,255)
+local OutlineTransparency = 0
+
+local CoreGui = game:FindService("CoreGui")
+local Players = game:FindService("Players")
+local lp = Players.LocalPlayer
+local connections = {}
+
+local Storage = Instance.new("Folder")
+Storage.Parent = CoreGui
+Storage.Name = "Highlight_Storage"
+
+local function Highlight(plr)
+    local Highlight = Instance.new("Highlight")
+    Highlight.Name = plr.Name
+    Highlight.FillColor = FillColor
+    Highlight.DepthMode = DepthMode
+    Highlight.FillTransparency = FillTransparency
+    Highlight.OutlineColor = OutlineColor
+    Highlight.OutlineTransparency = 0
+    Highlight.Parent = Storage
+    
+    local plrchar = plr.Character
+    if plrchar then
+        Highlight.Adornee = plrchar
+    end
+
+    connections[plr] = plr.CharacterAdded:Connect(function(char)
+        Highlight.Adornee = char
+    end)
+end
+
+Players.PlayerAdded:Connect(Highlight)
+for i,v in next, Players:GetPlayers() do
+    Highlight(v)
+end
+
+Players.PlayerRemoving:Connect(function(plr)
+    local plrname = plr.Name
+    if Storage[plrname] then
+        Storage[plrname]:Destroy()
+    end
+    if connections[plr] then
+        connections[plr]:Disconnect()
+    end
+end)
+end)
